@@ -24,7 +24,7 @@ body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   color: var(--text);
-  background: var(--bg);
+  background: linear-gradient(180deg, #fcfaf7 0%, var(--bg) 42%, #f8f5ef 100%);
   line-height: 1.6;
 }
 
@@ -47,7 +47,7 @@ img {
   top: 0;
   z-index: 10;
   backdrop-filter: blur(16px);
-  background: rgba(246, 243, 238, 0.92);
+  background: rgba(252, 250, 247, 0.94);
   border-bottom: 1px solid rgba(139, 94, 52, 0.12);
 }
 
@@ -65,12 +65,12 @@ img {
 }
 
 .phone-link {
-  font-weight: 700;
+  font-weight: 800;
   color: var(--primary-dark);
 }
 
 .hero {
-  padding: 4rem 0 2rem;
+  padding: 4rem 0 1.5rem;
 }
 
 .hero__grid,
@@ -78,12 +78,17 @@ img {
 .section-split,
 .final-cta__inner {
   display: grid;
-  grid-template-columns: 1.2fr 0.9fr;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
   gap: 2rem;
   align-items: start;
 }
 
-.eyebrow {
+.hero__content {
+  padding-top: 1rem;
+}
+
+.eyebrow,
+.form-card__eyebrow {
   margin: 0 0 0.75rem;
   color: var(--primary-dark);
   font-weight: 700;
@@ -95,13 +100,13 @@ img {
 h1,
 h2,
 h3 {
-  line-height: 1.15;
+  line-height: 1.12;
   letter-spacing: -0.03em;
   margin: 0;
 }
 
 h1 {
-  font-size: clamp(2.5rem, 4vw, 4.5rem);
+  font-size: clamp(2.65rem, 4vw, 4.8rem);
   max-width: 12ch;
 }
 
@@ -114,7 +119,9 @@ h2 {
 .section-heading p,
 .card p,
 .credibility__grid p,
-.final-cta__inner p {
+.final-cta__inner p,
+.form-card__intro,
+.form-card__note {
   color: var(--muted);
   font-size: 1.05rem;
 }
@@ -131,11 +138,11 @@ h2 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 54px;
+  min-height: 56px;
   padding: 0.95rem 1.4rem;
   border-radius: 999px;
-  font-weight: 700;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  font-weight: 800;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
 }
 
 .button:hover {
@@ -155,6 +162,10 @@ h2 {
 .button--secondary {
   background: var(--surface);
   border: 1px solid var(--border);
+}
+
+.button--phone {
+  font-weight: 800;
 }
 
 .button--full {
@@ -195,11 +206,22 @@ h2 {
 
 .form-card {
   padding: 1.5rem;
+  position: sticky;
+  top: 5.25rem;
 }
 
 .form-card__intro {
   margin: 0.75rem 0 1.25rem;
-  color: var(--muted);
+}
+
+.form-card__note {
+  margin: 0.95rem 0 0;
+  font-size: 0.95rem;
+}
+
+.form-card__note a {
+  color: var(--primary-dark);
+  font-weight: 700;
 }
 
 .estimate-form {
@@ -224,6 +246,12 @@ h2 {
   background: var(--surface-alt);
 }
 
+.estimate-form input:focus,
+.estimate-form textarea:focus {
+  outline: 2px solid rgba(139, 94, 52, 0.2);
+  border-color: rgba(139, 94, 52, 0.4);
+}
+
 .trust-strip {
   padding-bottom: 1rem;
 }
@@ -240,7 +268,7 @@ h2 {
   border-radius: 999px;
   padding: 0.95rem 1rem;
   text-align: center;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .section {
@@ -278,17 +306,30 @@ h2 {
   font-size: 1.2rem;
 }
 
+.services .section-heading p,
+.gallery .section-heading p,
+.reviews .section-heading p {
+  max-width: 62ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-heading--left p {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .service-list {
   display: grid;
   gap: 1rem;
 }
 
 .service-item {
-  background: var(--surface);
+  background: linear-gradient(180deg, #fff 0%, #fbf8f3 100%);
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 1rem 1.1rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .gallery-grid {
@@ -298,7 +339,7 @@ h2 {
 }
 
 .gallery-card {
-  min-height: 320px;
+  min-height: 340px;
   padding: 1.25rem;
   display: flex;
   align-items: end;
@@ -311,12 +352,12 @@ h2 {
   margin: 0;
   padding: 1rem;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.88);
-  font-weight: 600;
+  background: rgba(255, 255, 255, 0.9);
+  font-weight: 700;
 }
 
 .gallery-card--one {
-  background: linear-gradient(160deg, rgba(52, 40, 28, 0.25), rgba(52, 40, 28, 0.1)), linear-gradient(135deg, #e8dbc7, #caa57c);
+  background: linear-gradient(160deg, rgba(52, 40, 28, 0.22), rgba(52, 40, 28, 0.08)), linear-gradient(135deg, #e8dbc7, #caa57c);
 }
 
 .gallery-card--two {
@@ -378,7 +419,13 @@ h2 {
 
 .final-cta__inner p,
 .final-cta__inner .eyebrow {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.final-cta .button--secondary {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
 }
 
 @media (max-width: 960px) {
@@ -391,6 +438,10 @@ h2 {
   .gallery-grid,
   .trust-strip__grid {
     grid-template-columns: 1fr;
+  }
+
+  .form-card {
+    position: static;
   }
 
   h1,
